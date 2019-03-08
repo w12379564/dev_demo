@@ -1,0 +1,19 @@
+version: '3'
+services:
+  DebugUtility:
+    container_name: DebugUtility
+    image: w12379564/debug_utility:0.0.2
+    networks: 
+      debug-network:
+    ports:
+    - 2222:22/tcp  
+    privileged: true
+  EchoServer:
+    container_name: EchoServer
+    image: w12379564/echo_server:0.0.1
+    networks: 
+      debug-network:
+    ports:
+    - 8080:80/tcp  
+networks:
+  debug-network:
